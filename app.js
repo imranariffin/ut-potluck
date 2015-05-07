@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var result = require('./routes/result');
 var creator = require('./routes/creatorRoute');
 var display = require('./routes/displayRoute');
 
@@ -27,8 +27,8 @@ app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/display', display.display);
+app.use('/resultzzz', result);
 //app.use('/create', creator);
 
 app.post('/create', creator.create);

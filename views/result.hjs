@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    <p>Welcome to {{ title }}</p>
+    <br>
+    <p>choose your UT man of the year:</p>
+    <form action="/create" method="post" accept-charset="utf-8">
+      <input type="radio" name="content" value="Anwar">Anwar<br>
+      <input type="radio" name="content" value="Najib">Najib<br>
+      <input type="radio" name="content" value="Kak Mah">Kak Mah<br>
+      <input type="submit" value="Submit">
+      <br>
+
+      {{#voteList}}
+        <p>{{.}}</p>
+      {{/voteList}}
+
+      <!-- {{ vote }} -->
+    </form>
+  </body>
+</html>
