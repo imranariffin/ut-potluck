@@ -18,7 +18,7 @@ exports.display = function (req, res) {
 			console.log(votes[vote]["candidate"]);
 		}
 
-		res.render ('index', {
+		res.render ('result', {
 			voteList : voteList
 		});
 	});

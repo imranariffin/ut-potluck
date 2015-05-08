@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ title }}</title>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </head>
   <body>
+
+    {{>navbar}}
+    <div class="container">
     <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
+    <!-- <p>Welcome to {{ title }}</p> -->
     <br>
-    <p>choose your UT man of the year:</p>
-    <form action="/create" method="post" accept-charset="utf-8">
+    <p>These area your candidates for UT man of the year:</p>
+<!--     <form action="/create" method="post" accept-charset="utf-8">
       <input type="radio" name="content" value="Anwar">Anwar<br>
       <input type="radio" name="content" value="Najib">Najib<br>
       <input type="radio" name="content" value="Kak Mah">Kak Mah<br>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit"> -->
       <br>
 
       {{#voteList}}
@@ -22,5 +28,6 @@
 
       <!-- {{ vote }} -->
     </form>
+    </div>
   </body>
 </html>
