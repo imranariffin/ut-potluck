@@ -1,33 +1,95 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
   </head>
   <body>
-    {{>navbar}}
-
+  
+  {{>navbar}}
   <div class="container">
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
-    <br>
-    <p>choose your UT man of the year:</p>
-    <form action="/create" method="post" accept-charset="utf-8">
-      <input type="radio" name="content" value="Anwar">Anwar<br>
-      <input type="radio" name="content" value="Najib">Najib<br>
-      <input type="radio" name="content" value="Kak Mah">Kak Mah<br>
-      <input type="submit" value="Submit">
+    <form class="form" action="" method="post">
+      <h4>Enter access code:</h4>
       <br>
-
-      {{#voteList}}
-        <p>{{.}}</p>
-      {{/voteList}}
-
-      <!-- {{ vote }} -->
+      <input type="text" class="form-control" placeholder="Text input">
+      <br>
+      <button type="submit" class="btn btn-success btn-sm">Submit</button>
     </form>
+
+  <br>
+  <br>
+  <h4>Award Categories</h4>
+  <br>
+    
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Paling Kacak
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-success">
+              Ipe
+            </a>
+            <a href="#" class="list-group-item">Fathuddin</a>
+            <a href="#" class="list-group-item">Zahir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Paling Hensem
+          </a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body">
+
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-success">
+              Ipe
+            </a>
+            <a href="#" class="list-group-item">Fasu</a>
+            <a href="#" class="list-group-item">Nik</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingThree">
+        <h4 class="panel-title">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Paling Macho
+          </a>
+        </h4>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+        <div class="panel-body">
+          
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-success">
+              Ipe
+            </a>
+            <a href="#" class="list-group-item">OP</a>
+            <a href="#" class="list-group-item">Nizhan</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
+  
   </body>
 </html>
