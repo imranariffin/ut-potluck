@@ -2,39 +2,21 @@
 <html>
   <head>
   <title>{{title}}</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
   <link rel='stylesheet' href='/stylesheets/style.css' />
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
   </head>
   <body>
   
   {{>navbar}}
-  <li><a href="/">Summary <span class="sr-only">(current)</span></a></li>
-        <li><a href="/users">Members Rank</a></li>
-        <li class="active"><a href="/potluck">Potluck</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
   <div class="container">
-    <h2>UT-Pot {{title}}</h2>
-    <br>
-    
-    <form action="submitCode"  method="POST">
-      <input type="radio" name="candidate" value="Mickey"> Mickey
-      <br>
-      <input type="radio" name="candidate" value="Mouse"> Mouse
-      <br><br>
-      <input type="submit" value="Submit">
-    </form>
-
-    <form class="form-inline" action="submitCode" method="post">
+    <form class="form" action="" method="post">
       <h4>Enter access code:</h4>
       <br>
-      <input type="text" class="form-control" name="code" placeholder="Text input">
-      <button type="submit" class="btn btn-success">Submit</button>
+      <input type="text" class="form-control" placeholder="Text input">
+      <br>
+      <button type="submit" class="btn btn-success btn-sm">Submit</button>
     </form>
 
   <br>
@@ -107,17 +89,6 @@
         </div>
       </div>
     </div>
-  </div>
-      
-  <br>
-  <div class="row">
-    <div class="col-md-12">
-      <h4>Result</h4>
-      <br>
-      <p>Ipe 100%</p>
-      <p>dll</p>
-    </div>
-  </div>
   </div>
   
   </body>
