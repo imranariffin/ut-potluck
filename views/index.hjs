@@ -12,7 +12,7 @@
   <body>
   
   {{>navbar}}
-  <div class="container">
+  <div class="container text-center">
     <div id="access">
         <h4>Enter access code:</h4>
         <br>
@@ -40,11 +40,9 @@
           <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
               <div class="list-group">
-                <a href="#" class="c1 list-group-item list-group-item-success" id="c11">
-                  Ipe
-                </a>
-                <a href="#" class="c1 list-group-item" id="c12">Fathuddin</a>
-                <a href="#" class="c1 list-group-item" id="c13">Zahir</a>
+                <a href="#" class="c c1 list-group-item list-group-item-success" id="c1Ipe">Ipe</a>
+                <a href="#" class="c c1 list-group-item" id="c1Fathuddin">Fathuddin</a>
+                <a href="#" class="c c1 list-group-item" id="c1Zahir">Zahir</a>
               </div>
             </div>
           </div>
@@ -61,11 +59,9 @@
             <div class="panel-body">
 
               <div class="list-group">
-                <a href="#" class="c2 list-group-item list-group-item-success" id="c21">
-                  Ipe
-                </a>
-                <a href="#" class="c2 list-group-item" id="c22">Fasu</a>
-                <a href="#" class="c2 list-group-item" id="c23">Nik</a>
+                <a href="#" class="c c2 list-group-item list-group-item-success" id="c2Ipe">Ipe</a>
+                <a href="#" class="c c2 list-group-item" id="c2Fasu">Fasu</a>
+                <a href="#" class="c c2 list-group-item" id="c2Nik">Nik</a>
               </div>
 
             </div>
@@ -83,16 +79,17 @@
             <div class="panel-body">
               
               <div class="list-group">
-                <a href="#" class="c3 list-group-item list-group-item-success" id="c31">
-                  Ipe
-                </a>
-                <a href="#" class="c3 list-group-item" id="c32">OP</a>
-                <a href="#" class="c3 list-group-item" id="c33">Nizhan</a>
+                <a href="#" class="c c3 list-group-item list-group-item-success" id="c3Ipe">Ipe</a>
+                <a href="#" class="c c3 list-group-item" id="c3OP">OP</a>
+                <a href="#" class="c c3 list-group-item" id="c3Nizhan">Nizhan</a>
               </div>
 
             </div>
           </div>
         </div>
+        <br>
+        <button type="submit" class="btn btn-success btn-sm" id="btn-vote">Submit</button>
+        <p id="thanks">Thank you!</p>
       </div>
     </div>
 
