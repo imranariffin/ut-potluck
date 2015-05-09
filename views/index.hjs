@@ -2,94 +2,98 @@
 <html>
   <head>
   <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="/javascripts/jquery.min.js"></script>
   <script src="/javascripts/bootstrap.min.js"></script>
+  <script src="/javascripts/main.js"></script>
   </head>
   <body>
   
   {{>navbar}}
-  <div class="container">
-    <form class="form" action="submitCode" method="post">
-      <h4>Enter access code:</h4>
+  <div class="container text-center">
+    <div id="access">
+        <h4>Enter access code:</h4>
+        <br>
+        <input type="text" class="form-control" placeholder="Text input" autocomplete="off" id="code">
+        <br>
+        <button type="submit" class="btn btn-success btn-sm" id="btn-access">Submit</button>
+      
       <br>
-      <input type="text" class="form-control" name="code" placeholder="Text input">
       <br>
-      <button type="submit" class="btn btn-success btn-sm">Submit</button>
-    </form>
-
-  <br>
-  <br>
-  <h4>Award Categories</h4>
-  <br>
-    {{ candidates }}
-  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingOne">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
-            Paling Kacak
-          </a>
-        </h4>
-      </div>
-      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-        <div class="panel-body">
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-success">
-              Ipe
-            </a>
-            <a href="#" class="list-group-item">Fathuddin</a>
-            <a href="#" class="list-group-item">Zahir</a>
+    </div>
+    <div id="poll">
+          <h4>Award Categories</h4>
+      <br>
+        
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Paling Kacak
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+              <div class="list-group">
+                <a href="#" class="c c1 list-group-item list-group-item-success" id="c1Ipe">Ipe</a>
+                <a href="#" class="c c1 list-group-item" id="c1Fathuddin">Fathuddin</a>
+                <a href="#" class="c c1 list-group-item" id="c1Zahir">Zahir</a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingTwo">
-        <h4 class="panel-title">
-          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Paling Hensem
-          </a>
-        </h4>
-      </div>
-      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-        <div class="panel-body">
-
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-success">
-              Ipe
-            </a>
-            <a href="#" class="list-group-item">Fasu</a>
-            <a href="#" class="list-group-item">Nik</a>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Paling Hensem
+              </a>
+            </h4>
           </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
 
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingThree">
-        <h4 class="panel-title">
-          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Paling Macho
-          </a>
-        </h4>
-      </div>
-      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-        <div class="panel-body">
-          
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-success">
-              Ipe
-            </a>
-            <a href="#" class="list-group-item">OP</a>
-            <a href="#" class="list-group-item">Nizhan</a>
+              <div class="list-group">
+                <a href="#" class="c c2 list-group-item list-group-item-success" id="c2Ipe">Ipe</a>
+                <a href="#" class="c c2 list-group-item" id="c2Fasu">Fasu</a>
+                <a href="#" class="c c2 list-group-item" id="c2Nik">Nik</a>
+              </div>
+
+            </div>
           </div>
-
         </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+              <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Paling Macho
+              </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+              
+              <div class="list-group">
+                <a href="#" class="c c3 list-group-item list-group-item-success" id="c3Ipe">Ipe</a>
+                <a href="#" class="c c3 list-group-item" id="c3OP">OP</a>
+                <a href="#" class="c c3 list-group-item" id="c3Nizhan">Nizhan</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success btn-sm" id="btn-vote">Submit</button>
+        <p id="thanks">Thank you!</p>
       </div>
     </div>
+
   </div>
+
   
   </body>
 </html>
