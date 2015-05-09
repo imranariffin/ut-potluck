@@ -15,35 +15,46 @@ exports.submitCode = function (req, res) {
 	//find first
 	var id = req.body.code;
 	console.log("req.body.code: " + id);
-	Voter.find(function (err, found) {
-		if (err) {
-			console.log("find error " + err);
-			return false;
-		}
-		if (!found.voted) {
-			console.log(found);
-			new Voter ({
-				access_code : id,
-				candidate : {		
-					category_1 : "",
-					category_2 : "",
-					category_3 : ""
-				},
-				voted : true,
-				update_at : Date.now()
-			}).save( function (err, Voter, count) {
-					if (err) {
-						console.log("save error " +err);
-						return false;
-					}
-			});
-			found.voted = "true";
-			//found.save( function (err, voter, count) {res.redirect('/');});
-			console.log("found.voted changed to " + found.voted);
-			//res.redirect('/');
-			console.log("created new blank voter");
+	Voter.find({}, function (err, data) {
+		if (!err) {
+			if (data.length!=0) 
+				console.log("Success: Got ");
+			else {
+				console.log("data is empty");
+				return false;
+			}
+			
+			//get desired voter only
+			var desired_voter = {};
+			for (i in data) {
+				var voter = data[i];
+				if (voter["access_code"] === Number(id)) {
+					//res.send(voter);
+					desired_voter = voter;
+					console.log("res.send(voter): " + voter);
+				}
+			}
+
+			var size = getObjectSize(desired_voter);
+
+			//send respond only if desired_voter is not empty
+			if (size!=0)
+				res.send(desired_voter);
+			else
+				res.send(Number(-1));
+
 		} else {
-			console.log("already voted");
+			console.log("Error: " + err);
 		}
+		//res.redirect('index');
 	});
+}
+
+getObjectSize = function (object) {
+	var size = 0;
+	for (i in object) {
+		if (object.hasOwnProperty(i))
+			size++;
+		}
+	return size;
 }

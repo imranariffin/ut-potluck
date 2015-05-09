@@ -57,7 +57,8 @@ if (app.get('env') === 'development') {
   });
 }
 
-mongoose.connect('mongodb://heroku_app36536831:nirdvg3k5j0p5i804g1u3k5nkc@ds031832.mongolab.com:31832/heroku_app36536831');
+mongoose.connect('mongodb://heroku_app36634655:5qp3c3heporaipt5r30t4bnac4@ds031932.mongolab.com:31932/heroku_app36634655');
+  //'mongodb://heroku_app36536831:nirdvg3k5j0p5i804g1u3k5nkc@ds031832.mongolab.com:31832/heroku_app36536831');
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, "connection error:"));

@@ -19,11 +19,11 @@ exports.candidateSchema = mongoose.Schema({
 
 exports.voterSchema = mongoose.Schema({
 	access_code : Number,
-	candidate : {
+	candidates : {
 		category_1 : String,
 		category_2 : String,
 		category_3 : String
 	},
-	voted : Boolean,
-	update_at : Date
+	has_voted : Boolean,
+	updated_at : Date
 })
