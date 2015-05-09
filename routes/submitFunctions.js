@@ -21,7 +21,11 @@ exports.submitCode = function (req, res) {
 			return false;
 		}
 		if (!found.voted) {
+			console.log("1");
+
 			console.log(found);
+			
+			console.log("2");
 			new Voter ({
 				access_code : id,
 				candidate : {		

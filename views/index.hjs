@@ -11,10 +11,10 @@
   
   {{>navbar}}
   <div class="container">
-    <form class="form" action="" method="post">
+    <form class="form" action="submitCode" method="post">
       <h4>Enter access code:</h4>
       <br>
-      <input type="text" class="form-control" placeholder="Text input">
+      <input type="text" class="form-control" name="code" placeholder="Text input">
       <br>
       <button type="submit" class="btn btn-success btn-sm">Submit</button>
     </form>
