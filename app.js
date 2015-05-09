@@ -11,7 +11,7 @@ var result = require('./routes/result');
 var creator = require('./routes/creatorRoute');
 var display = require('./routes/displayRoute');
 var submits = require('./routes/submitFunctions');
-
+var gets = require('./routes/getFunctions');
 var app = express();
 
 // view engine setup
@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/display', display.display);
+app.use('/getCandidate', gets.getCandidates)
 app.use('/resultzzz', result);
 app.use('/submitcode', submits.submitCode);
 //app.use('/create', creator);

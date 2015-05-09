@@ -9,12 +9,12 @@ exports.voteSchema = mongoose.Schema({
 
 exports.candidateSchema = mongoose.Schema({
 	name : String,
-	num_vote : {		
+	categories : {		
 		category_1 : Number,
 		category_2 : Number,
 		category_3 : Number
-	},	
-	update_at : Date
+	},
+	updated_at : Date
 });
 
 exports.voterSchema = mongoose.Schema({

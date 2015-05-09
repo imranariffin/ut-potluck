@@ -58,3 +58,26 @@ getObjectSize = function (object) {
 		}
 	return size;
 }
+
+exports.submitVote = function (req, res) {
+
+}
+
+var candidateScheme = schemas.candidateSchema;
+var Candidate = mongoose.model('Candidate', candidateScheme);
+
+exports.getCandidates = function (req, res) {
+
+	//get all candidates
+	Candidate.find( {}, function (err, data) {
+		if (!err) {
+			console.log("candidates: " + data[0]["name"]);
+			//res.send(data);
+			res.render( {
+				candidates : data[0]["name"]
+			})
+		} else {
+			console.log("Error: " + err);
+		}
+	});
+}
