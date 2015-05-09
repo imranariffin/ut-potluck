@@ -31,12 +31,12 @@ exports.submitCode = function (req, res) {
 				if (voter["access_code"] === Number(id)) {
 					//res.send(voter);
 					desired_voter = voter;
-					console.log("res.send(voter): " + voter);
+					console.log("res.send(voter): " + desired_voter);
 				}
 			}
 
 			var size = getObjectSize(desired_voter);
-
+			console.log(desired_voter);
 			//send respond only if desired_voter is not empty
 			if (size!=0)
 				res.send(desired_voter);
