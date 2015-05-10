@@ -1,5 +1,3 @@
-//populateVoter
-
 //populateVoters.js
 
 var mongoose = require('mongoose');
@@ -27,7 +25,7 @@ var voterSchema = mongoose.Schema({
 //create Voter model based on voter schema
 var Voter = mongoose.model('voter', voterSchema);
 
-populateVoters = function (req, res) {
+exports.populateVoters = function (req, res) {
 
 	//create blank candidates
 	var candidates = {
@@ -76,4 +74,15 @@ generateAccessCode = function (length) {
 	return access_code;
 }
 
-populateVoters();
+exports.deleteBlankVoters = function (req, res) {
+	//get access_code from textinput
+	// var access_code = req.body.todelete;	
+	// console.log(access_code);
+	// access_code = Number(access_code);
+
+
+
+	//find(access_code) then remove
+	Voter.find({has_voted : "false"}).remove().exec();	
+	res.send("done");
+}
