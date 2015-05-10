@@ -89,7 +89,7 @@
           </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-success btn-sm" id="btn-vote">Submit</button>
+        <button type="submit" class="btn btn-success btn-sm" id="btn-vote" action="submitVote">Submit</button>
         <p id="thanks">Thank you!</p>
       </div>
     </div>

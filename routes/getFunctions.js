@@ -13,15 +13,11 @@ exports.getCandidates = function (req, res) {
 	//find all candidates
 	Candidate.find( {}, function (err, data) {
 		if (!err) {
-			console.log("candidates: " + data[0]["name"]);
 
 			//organize by category
 			var category_list = orgByCategory(data);
-
+			//send to front
 			res.send(category_list);
-			// res.render( 'index', {
-			// 	candidates : data
-			// });
 		} else {
 			console.log("Error: " + err);
 		}
@@ -48,4 +44,18 @@ orgByCategory = function (candidates) {
 	}
 	var category_list = [c1, c2, c3];
 	return category_list;
+}
+
+Voter = mongoose.model('Voter', schemas.voterSchema);
+
+exports.getVoter = function (req, res) {
+	Voter.findOne({ access_code : 97414 }, function (err, voter) {
+		if (!err) {
+			console.log("voter.access_code: " + voter.access_code);
+			console.log("typeof(voter.has_voted):" + typeof(voter.has_voted));
+			res.send(voter);
+		} else {
+			console.log("Error findOne: " + err);
+		}
+	})
 }

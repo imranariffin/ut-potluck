@@ -14,11 +14,10 @@ var Voter = mongoose.model('Voter', voterScheme);
 exports.submitCode = function (req, res) {
 	//find first
 	var id = req.body.code;
-	console.log("req.body.code: " + id);
 	Voter.find({}, function (err, data) {
 		if (!err) {
 			if (data.length!=0) 
-				console.log("Success: Got ");
+				console.log("Success: voter.find()");
 			else {
 				console.log("data is empty");
 				return false;
@@ -29,14 +28,11 @@ exports.submitCode = function (req, res) {
 			for (i in data) {
 				var voter = data[i];
 				if (voter["access_code"] === Number(id)) {
-					//res.send(voter);
 					desired_voter = voter;
-					console.log("res.send(voter): " + desired_voter);
 				}
 			}
 
-			var size = getObjectSize(desired_voter);
-			console.log(desired_voter);
+			var size = getObjectSize(desired_voter);			
 			//send respond only if desired_voter is not empty
 			if (size!=0)
 				res.send(desired_voter);
@@ -60,24 +56,36 @@ getObjectSize = function (object) {
 }
 
 exports.submitVote = function (req, res) {
+	var submitReq = {
+		"access_code" : req.body.code,
+		"vote1" : req.body.c1,
+		"vote2" : req.body.c2,
+		"vote3" : req.body.c3
+	}
 
-}
+	//DEBUG
+	console.log("access_code: " + submitReq["access_code"]);
+	console.log("vote1: " + submitReq["vote1"]);
+	console.log("vote2: " + submitReq["vote2"]);
+	console.log("vote3: " + submitReq["vote3"]);
 
-var candidateScheme = schemas.candidateSchema;
-var Candidate = mongoose.model('Candidate', candidateScheme);
-
-exports.getCandidates = function (req, res) {
-
-	//get all candidates
-	Candidate.find( {}, function (err, data) {
+	//update Voter document
+	var conditions = { access_code : Number(submitReq["access_code"]) };
+	Voter.findOne(conditions, function (err, doc) {
 		if (!err) {
-			console.log("candidates: " + data[0]["name"]);
-			//res.send(data);
-			res.render( {
-				candidates : data[0]["name"]
-			})
+			console.log("updating doc " + submitReq["access_code"]);
+			doc.candidates.category_1 = submitReq["vote1"];
+			doc.candidates.category_2 = submitReq["vote2"];
+			doc.candidates.category_3 = submitReq["vote3"];
+			doc.has_voted = true;
+			doc.update_at = Date.now();
+			doc.save();
+
+			res.send("update success");
 		} else {
-			console.log("Error: " + err);
+			console.log("Update Error: " + err);
 		}
-	});
+	})
+	
 }
+

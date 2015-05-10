@@ -39,6 +39,8 @@ app.use('/display', display.display);
 app.use('/getCandidate', gets.getCandidates)
 app.use('/resultzzz', result);
 app.use('/submitcode', submits.submitCode);
+app.use('/submitVote', submits.submitVote);
+app.use('/getVoter', gets.getVoter);
 // populate
 app.use('/populate', scripts.populateVoters);
 // end populate
