@@ -231,7 +231,8 @@ var candidateList = [
 "Hazwan",
 "Nopal",
 "Pooh",
-"Amin"
+"Amin",
+"Fiq"
 ];
 
 exports.populateCandidates = function (req, res) {
