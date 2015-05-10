@@ -41,9 +41,9 @@ orgByCategory = function (candidates) {
 
 		// filter candidate accoring to category
 		//c1 : BOTY
-		var c1_names = ["Afiq", "Zahir", "Din", "Nik","Ipe","Haikal","Shuk","Zack","Nizhan","Eddy","Syamil","Hazwan","Nopal","Pooh", "OP"];
+		var c1_names = ["Afiq", "Zahir", "Din", "Nik","Ipe","Haikal","Shuk","Zack","Nizhan","Eddy","Syamil","Hazwan","Nopal","Pooh", "OP", "Fiq", "Zul", "Amin"];
 		//c2 :  utuh
-		var c2_names = ["Afiq", "Zahir", "Din", "Nik","Ipe","OP","Zack","Nizhan","Syamil","Hazwan","Nopal","Pooh","Fiq"];
+		var c2_names = ["Afiq", "Zahir", "Din", "Nik","Ipe","OP","Zack","Nizhan","Syamil","Hazwan","Nopal","Pooh","Fiq", "Zul", "Amin"];
 		//c3 : oboy
 		var c3_names = ["Anas", "Zahir", "Din", "Haikal","Shuk","Zack","Nizhan", "Zul", "Fiq"];
 // var candidateList = ["Afiq", "Anas", "Zahir", "Din", "Nik","Ipe","Fasu","OP","Haikal","Shuk","Zack","Nizhan","Eddy","Syamil","Hazwan","Nopal","Pooh","Amin"];
