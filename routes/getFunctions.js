@@ -40,12 +40,23 @@ orgByCategory = function (candidates) {
 		//update list
 
 		// filter candidate accoring to category
-		var c1_names = [""];
-
+		//c1 : BOTY
+		var c1_names = ["Afiq", "Zahir", "Din", "Nik","Ipe","Haikal","Shuk","Zack","Nizhan","Eddy","Syamil","Hazwan","Nopal","Pooh"];
+		//c2 :  utuh
+		var c2_names = ["Afiq", "Zahir", "Din", "Nik","Ipe","OP","Zack","Nizhan","Syamil","Hazwan","Nopal","Pooh","Fiq"];
+		//c3 : oboy
+		var c3_names = ["Anas", "Zahir", "Din", "Haikal","Shuk","Zack","Nizhan", "Zul", "Fiq"];
+// var candidateList = ["Afiq", "Anas", "Zahir", "Din", "Nik","Ipe","Fasu","OP","Haikal","Shuk","Zack","Nizhan","Eddy","Syamil","Hazwan","Nopal","Pooh","Amin"];
 		
-		c1.push([name, score_1]);
-		c2.push([name, score_2]);
-		c3.push([name, score_3]);
+		if (isExist(name, c1_names)) {
+			c1.push([name, score_1]);
+		}
+		if (isExist(name, c2_names)) {
+			c2.push([name, score_2]);
+		}
+		if (isExist(name, c3_names)) {
+			c3.push([name, score_3]);
+		}
 	}
 	var category_list = [c1, c2, c3];
 	return category_list;
@@ -63,4 +74,12 @@ exports.getVoter = function (req, res) {
 			console.log("Error findOne: " + err);
 		}
 	})
+}
+
+isExist = function (name, nameList) {
+	for (var i=0; i<nameList.length; i++) {
+		if (name === nameList[i])
+			return true;
+	}
+	return false;
 }
