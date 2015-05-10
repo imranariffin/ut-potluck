@@ -40,6 +40,22 @@ $(function(){
 			     '</a>'
 			    );
 			});
+
+			$('.list-group-item').click(function(){
+				if ($(this).hasClass('c1') == true) {
+					$('.c1').removeClass("list-group-item-success");
+					$(this).addClass("list-group-item-success")
+					c1 = $(this).text();
+				} else if ($(this).hasClass('c2') == true) {
+					$('.c2').removeClass("list-group-item-success");
+					$(this).addClass("list-group-item-success")
+					c2 = $(this).text();
+				} else if ($(this).hasClass('c3') == true) {
+					$('.c3').removeClass("list-group-item-success");
+					$(this).addClass("list-group-item-success")
+					c3 = $(this).text();
+				}
+			});
 		},
 		failure: function (err) {
 			alert('Wrong access code! Try again!');
@@ -70,25 +86,7 @@ $(function(){
 		});
 	});
 
-	$('.c').click(function(){
-		console.log("sdfasfdas");
-		if ($(this).hasClass('c1') == true) {
-			$('.c1').removeClass("list-group-item-success");
-			$(this).addClass("list-group-item-success")
-			c1 = $(this).text();
-		} else if ($(this).hasClass('c2') == true) {
-			$('.c2').removeClass("list-group-item-success");
-			$(this).addClass("list-group-item-success")
-			c2 = $(this).text();
-		} else if ($(this).hasClass('c3') == true) {
-			$('.c3').removeClass("list-group-item-success");
-			$(this).addClass("list-group-item-success")
-			c3 = $(this).text();
-		}
-	});
-
-	$('#btn-vote').click(function() {
-		console.log(c1);
+	$('#btn-vote').click(function() {	
 		$.ajax({
 			type: "POST",
 			data: {
