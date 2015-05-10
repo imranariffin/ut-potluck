@@ -41,7 +41,7 @@ orgByCategory = function (candidates) {
 
 		// filter candidate accoring to category
 		//c1 : BOTY
-		var c1_names = ["Afiq", "Zahir", "Din", "Nik","Ipe","Haikal","Shuk","Zack","Nizhan","Eddy","Syamil","Hazwan","Nopal","Pooh"];
+		var c1_names = ["Afiq", "Zahir", "Din", "Nik","Ipe","Haikal","Shuk","Zack","Nizhan","Eddy","Syamil","Hazwan","Nopal","Pooh", "OP"];
 		//c2 :  utuh
 		var c2_names = ["Afiq", "Zahir", "Din", "Nik","Ipe","OP","Zack","Nizhan","Syamil","Hazwan","Nopal","Pooh","Fiq"];
 		//c3 : oboy
