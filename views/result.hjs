@@ -20,17 +20,17 @@
     <br>
       <div class="row text-center">
         <div class="col-md-4">
-          <h3>Paling Kacak</h3>
+          <h3>BOTY</h3>
           <div id="chart0"></div>
           <br>
         </div>
         <div class="col-md-4">
-          <h3>Paling Hensem</h3>
+          <h3>UTUH</h3>
           <div id="chart1"></div>
           <br>
         </div>
         <div class="col-md-4">
-          <h3>Paling Macho</h3>
+          <h3>OBOY</h3>
           <div id="chart2"></div>
           <br>
         </div>
