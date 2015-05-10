@@ -38,11 +38,10 @@
           </div>
           <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
-              <div class="list-group">
-                <a href="#" class="c c1 list-group-item list-group-item-success" id="c1Ipe">Ipe</a>
-                <a href="#" class="c c1 list-group-item" id="c1Fathuddin">Fathuddin</a>
-                <a href="#" class="c c1 list-group-item" id="c1Zahir">Zahir</a>
+
+              <div class="list-group" id="category1">
               </div>
+              
             </div>
           </div>
         </div>
@@ -57,10 +56,7 @@
           <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
             <div class="panel-body">
 
-              <div class="list-group">
-                <a href="#" class="c c2 list-group-item list-group-item-success" id="c2Ipe">Ipe</a>
-                <a href="#" class="c c2 list-group-item" id="c2Fasu">Fasu</a>
-                <a href="#" class="c c2 list-group-item" id="c2Nik">Nik</a>
+              <div class="list-group" id="category2">
               </div>
 
             </div>
@@ -77,10 +73,7 @@
           <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
             <div class="panel-body">
               
-              <div class="list-group">
-                <a href="#" class="c c3 list-group-item list-group-item-success" id="c3Ipe">Ipe</a>
-                <a href="#" class="c c3 list-group-item" id="c3OP">OP</a>
-                <a href="#" class="c c3 list-group-item" id="c3Nizhan">Nizhan</a>
+              <div class="list-group" id="category3">
               </div>
 
             </div>

@@ -7,6 +7,45 @@ $(function(){
 	$('#poll').hide();
 	$('#thanks').hide();
 
+	$.ajax({
+		type: "GET",
+		url: "/getCandidate",
+		success: function (categories) {
+			$.each(categories[0], function(i, candidate) {
+				$('#category1').append(
+				'<a href="#" class="c c1 list-group-item" id="c1' +
+			     candidate[0] +
+			     '">' +
+			     candidate[0] +
+			     '</a>'
+			    );
+			});
+
+			$.each(categories[1], function(i, candidate) {
+				$('#category2').append(
+				'<a href="#" class="c c2 list-group-item" id="c2' +
+			     candidate[0] +
+			     '">' +
+			     candidate[0] +
+			     '</a>'
+			    );
+			});
+
+			$.each(categories[2], function(i, candidate) {
+				$('#category3').append(
+				'<a href="#" class="c c3 list-group-item" id="c3' +
+			     candidate[0] +
+			     '">' +
+			     candidate[0] +
+			     '</a>'
+			    );
+			});
+		},
+		failure: function (err) {
+			alert('Wrong access code! Try again!');
+		}
+	});
+
 	$('#btn-access').click(function() {
 		$.ajax({
 			type: "POST",
@@ -31,7 +70,8 @@ $(function(){
 		});
 	});
 
-	$('.list-group-item').click(function(){
+	$('.c').click(function(){
+		console.log("sdfasfdas");
 		if ($(this).hasClass('c1') == true) {
 			$('.c1').removeClass("list-group-item-success");
 			$(this).addClass("list-group-item-success")
