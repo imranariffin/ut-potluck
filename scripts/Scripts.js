@@ -123,6 +123,51 @@ exports.resetVoter = function (req, res) {
 			console.log("Error resetVoter: Error findONe: " + err);
 		}
 	});
+
+	var submitReq = {
+		"vote1" : req.body.c1,
+		"vote2" : req.body.c2,
+		"vote3" : req.body.c3
+	}
+	//update Candidates
+	//update first candidate
+	Candidate.findOne({ name : submitReq["vote1"] }, function (err, candidate) {
+		if (!err) {
+			var candidateName = submitReq["vote1"];
+			console.log("updating doc " + submitReq["vote1"]);
+			candidate.categories.category_1--;
+			candidate.update_at = Date.now();
+			candidate.save();
+		} else {
+			console.log("error update candidate: " + err);
+		}
+	});
+
+	//update second candidate
+	Candidate.findOne({ name : submitReq["vote2"] }, function (err, candidate2) {
+		if (!err) {
+			var candidateName = submitReq["vote2"];
+			console.log("updating doc " + submitReq["vote2"]);
+			candidate2.categories.category_2--;
+			candidate2.update_at = Date.now();
+			candidate2.save();
+		} else {
+			console.log("error update candidate: " + err);
+		}
+	});
+
+	//update third candidate
+	Candidate.findOne({ name : submitReq["vote3"] }, function (err, candidate3) {
+		if (!err) {
+			var candidateName = submitReq["vote3"];
+			console.log("updating doc " + submitReq["vote3"]);
+			candidate3.categories.category_3--;
+			candidate3.update_at = Date.now();
+			candidate3.save();
+		} else {
+			console.log("error update candidate: " + err);
+		}
+	});
 }
 
 exports.resetAllVoters = function (req, res) {
