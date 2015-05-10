@@ -83,3 +83,7 @@ isExist = function (name, nameList) {
 	}
 	return false;
 }
+
+randomizeData = function (array) {
+	
+}

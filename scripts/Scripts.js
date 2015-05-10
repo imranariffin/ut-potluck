@@ -99,7 +99,12 @@ exports.resetVoter = function (req, res) {
 	Voter.findOne( criteria, function (err, voter) {
 		if (!err) {
 			console.log("success: findOne");
+			console.log("req.body.code: " + req.body.code);
 			console.log("voter: " + voter);
+			if (!voter) {
+				console.log("voter is null");
+				return -1;
+			}
 			
 			//reset voter values
 			voter.candidates.category_1 = "";

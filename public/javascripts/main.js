@@ -7,6 +7,8 @@ $(function(){
 	$('#poll').hide();
 	$('#thanks').hide();
 	$('#resetMessage').hide();
+	$('#btn-resetVote').hide();
+	$('#askSure').hide();
 	$.ajax({
 		type: "GET",
 		url: "/getCandidate",
@@ -103,6 +105,12 @@ $(function(){
 		console.log($('#code').val());
 	});
 
+
+	$('#btn-sudoResetVote').click( function () {
+		$('#btn-resetVote').show();
+		$('#askSure').show();
+		$(this).hide();
+	});
 
 	$('#btn-resetVote').click(function() {	
 		$.ajax({

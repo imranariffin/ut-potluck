@@ -92,7 +92,9 @@
         <button type="submit" class="btn btn-success btn-sm" id="btn-vote" action="submitVote">Submit</button> 
         <p id="thanks">Thank you!</p>
         <br><br><br><br>
-        <button type="submit" class="btn btn-success btn-sm" id="btn-resetVote" action="resetVoter">Reset Vote</button>
+        <p id="askSure">Are you sure you want to reset?</p>
+        <button type="submit" class="btn btn-success btn-sm" id="btn-sudoResetVote">Reset Vote</button>
+        <button type="submit" class="btn btn-success btn-sm" id="btn-resetVote" action="resetVoter">Yes, sure</button>
         <p id="resetMessage">Vote reset</p>
       </div>
     </div>
