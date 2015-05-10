@@ -74,7 +74,8 @@ exports.submitVote = function (req, res) {
 	Voter.findOne(conditions, function (err, doc) {
 		if (!err) {
 			console.log("updating doc " + submitReq["access_code"]);
-			doc.candidates.category_1 = submitReq["vote1"];
+			console.log("doc.candidates: " + doc.candidates);
+			doc.candidates.category_1 = submitReq["vote1"];			
 			doc.candidates.category_2 = submitReq["vote2"];
 			doc.candidates.category_3 = submitReq["vote3"];
 			doc.has_voted = true;
@@ -85,7 +86,7 @@ exports.submitVote = function (req, res) {
 		} else {
 			console.log("Update Error: " + err);
 		}
-	})
+	});
 	
 }
 

@@ -22,6 +22,17 @@ var voterSchema = mongoose.Schema({
 	update_at : Date
 })
 
+//create Candidate schema
+var candidateSchema = mongoose.Schema({
+	name : String,
+	categories : {		
+		category_1 : Number,
+		category_2 : Number,
+		category_3 : Number
+	},
+	updated_at : Date
+});
+
 //create Voter model based on voter schema
 var Voter = mongoose.model('voter', voterSchema);
 
@@ -85,4 +96,86 @@ exports.deleteBlankVoters = function (req, res) {
 	//find(access_code) then remove
 	Voter.find({has_voted : "false"}).remove().exec();	
 	res.send("done");
+}
+
+//reset one voter based on access_code
+exports.resetVoter = function (req, res) {
+	if (!req.body.code) {
+		console.log("Error: req.body.code: null");
+		res.send("Error: req.body.code: null");
+		return false;
+	}
+	var criteria = { access_code : req.body.code };
+	Voter.findOne( criteria, function (err, voter) {
+		if (!err) {
+			console.log("success: findOne");
+			console.log("voter: " + voter);
+			
+			//reset voter values
+			voter.candidates.category_1 = "";
+			voter.candidates.category_2 = "";
+			voter.candidates.category_3 = "";
+			voter.save();
+			console.log("voter: " + voter);
+			console.log("voter.access_code: " + voter.access_code);
+			console.log("voter.candidates: " + voter["candidates"]);
+
+			console.log("reset success");
+		} else {
+			console.log("Error resetVoter: Error findONe: " + err);
+		}
+	});
+}
+
+exports.resetAllVoters = function (req, res) {
+
+	//option = {} for findAll
+	Voter.find({}, function (err, data) {
+		// console.log(data);
+
+		for (i in data) {
+			voter = data[i];
+			if (voter.has_voted===true) {
+				console.log("i: " + i);
+				console.log("voter: " + voter);
+			}	
+			data[i].candidates.category_1 = "";
+			data[i].candidates.category_2 = "";
+			data[i].candidates.category_3 = "";
+			data[i].has_voted = false;
+			data[i].update_at = Date.now();
+
+			//update message
+			//console.log(voter);
+			console.log("voter.access_code: " + voter.access_code);
+		}
+		//data.save();
+		res.send("sucess reset all");
+	});
+}
+
+// findOneAndUpdate(conditions, update, callback)
+
+//setup
+var candidateList = [
+"Imran", 
+"Afiq", 
+"Anas", 
+"Zahir", 
+"Din", 
+"Arif", 
+"Nik",
+"Ipe",
+"Fasu",
+"OP",
+"Haikal",
+"Shuk",
+"Zack",
+"Amin"
+];
+
+exports.populateCandidates = function (req, res) {
+
+	//Candidate.
+
 }

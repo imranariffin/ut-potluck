@@ -41,7 +41,7 @@
           <div class="panel-heading" role="tab" id="headingOne">
             <h4 class="panel-title">
               <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Paling Kacak
+                BOTY
               </a>
             </h4>
           </div>
@@ -58,7 +58,7 @@
           <div class="panel-heading" role="tab" id="headingTwo">
             <h4 class="panel-title">
               <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Paling Hensem
+                UTUH
               </a>
             </h4>
           </div>
@@ -75,7 +75,7 @@
           <div class="panel-heading" role="tab" id="headingThree">
             <h4 class="panel-title">
               <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Paling Macho
+                OBOY
               </a>
             </h4>
           </div>
@@ -89,8 +89,10 @@
           </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-success btn-sm" id="btn-vote" action="submitVote">Submit</button>
+        <button type="submit" class="btn btn-success btn-sm" id="btn-vote" action="submitVote">Submit</button> <br><br><br><br>
+        <button type="submit" class="btn btn-success btn-sm" id="btn-resetVote" action="resetVoter">Reset Vote</button>
         <p id="thanks">Thank you!</p>
+        <p id="resetMessage">Vote reset</p>
       </div>
     </div>
 

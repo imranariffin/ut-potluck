@@ -6,7 +6,7 @@ var c3 = "";
 $(function(){
 	$('#poll').hide();
 	$('#thanks').hide();
-
+	$('#resetMessage').hide();
 	$.ajax({
 		type: "GET",
 		url: "/getCandidate",
@@ -100,8 +100,29 @@ $(function(){
 				$('#thanks').show();
 			}
 		});
+		console.log($('#code').val());
 	});
 
+
+	$('#btn-resetVote').click(function() {	
+		$.ajax({
+			type: "POST",
+			data: {
+				code:$('#code').val(),
+				c1:c1,
+				c2:c2,
+				c3:c3
+			},
+			url: "/resetVoter",
+			success: function (data) {
+				$('#resetMessage').show();
+			},
+			err : function (err) {
+				$('#resetMessage').show();
+			}
+		});
+		console.log($('#code').val());
+	});
 
 })
 
