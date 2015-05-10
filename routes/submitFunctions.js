@@ -11,6 +11,9 @@ var schemas = require('../schemas/schemas');
 var voterScheme = schemas.voterSchema;
 var Voter = mongoose.model('Voter', voterScheme);
 
+var candidateSchema = schemas.candidateSchema;
+var Candidate = mongoose.model('Candidate', candidateSchema);
+
 exports.submitCode = function (req, res) {
 	//find first
 	var id = req.body.code;
@@ -75,7 +78,7 @@ exports.submitVote = function (req, res) {
 		if (!err) {
 			console.log("updating doc " + submitReq["access_code"]);
 			console.log("doc.candidates: " + doc.candidates);
-			doc.candidates.category_1 = submitReq["vote1"];			
+			doc.candidates.category_1 = submitReq["vote1"];		
 			doc.candidates.category_2 = submitReq["vote2"];
 			doc.candidates.category_3 = submitReq["vote3"];
 			doc.has_voted = true;
@@ -88,5 +91,44 @@ exports.submitVote = function (req, res) {
 		}
 	});
 	
+	//update Candidates
+	//update first candidate
+	Candidate.findOne({ name : submitReq["vote1"] }, function (err, candidate) {
+		if (!err) {
+			var candidateName = submitReq["vote1"];
+			console.log("updating doc " + submitReq["vote1"]);
+			candidate.categories.category_1++;
+			candidate.update_at = Date.now();
+			candidate.save();
+		} else {
+			console.log("error update candidate: " + err);
+		}
+	});
+
+	//update second candidate
+	Candidate.findOne({ name : submitReq["vote2"] }, function (err, candidate2) {
+		if (!err) {
+			var candidateName = submitReq["vote2"];
+			console.log("updating doc " + submitReq["vote2"]);
+			candidate2.categories.category_2++;
+			candidate2.update_at = Date.now();
+			candidate2.save();
+		} else {
+			console.log("error update candidate: " + err);
+		}
+	});
+
+	//update third candidate
+	Candidate.findOne({ name : submitReq["vote3"] }, function (err, candidate3) {
+		if (!err) {
+			var candidateName = submitReq["vote3"];
+			console.log("updating doc " + submitReq["vote3"]);
+			candidate3.categories.category_3++;
+			candidate3.update_at = Date.now();
+			candidate3.save();
+		} else {
+			console.log("error update candidate: " + err);
+		}
+	});
 }
 
