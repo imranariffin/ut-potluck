@@ -117,6 +117,8 @@ exports.resetVoter = function (req, res) {
 			console.log("voter.access_code: " + voter.access_code);
 			console.log("voter.candidates: " + voter["candidates"]);
 			console.log("reset success");
+
+			res.send("success reset");
 		} else {
 			console.log("Error resetVoter: Error findONe: " + err);
 		}

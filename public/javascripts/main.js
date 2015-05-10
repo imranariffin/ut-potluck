@@ -9,6 +9,7 @@ $(function(){
 	$('#resetMessage').hide();
 	$('#btn-resetVote').hide();
 	$('#askSure').hide();
+	$('#confirmReset').hide();
 	$.ajax({
 		type: "GET",
 		url: "/getCandidate",
@@ -113,6 +114,7 @@ $(function(){
 	});
 
 	$('#btn-resetVote').click(function() {	
+		var that = this;
 		$.ajax({
 			type: "POST",
 			data: {
@@ -123,7 +125,10 @@ $(function(){
 			},
 			url: "/resetVoter",
 			success: function (data) {
-				$('#resetMessage').show();
+				console.log('ab');			
+				$('#confirmReset').show();
+				$('#askSure').hide();
+				$(that).hide();
 			},
 			err : function (err) {
 				$('#resetMessage').show();

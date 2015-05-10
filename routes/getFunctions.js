@@ -58,6 +58,14 @@ orgByCategory = function (candidates) {
 			c3.push([name, score_3]);
 		}
 	}
+
+	//randomize positiion 
+	//of candidates in each candidate list c1,c2,c3
+	// c1 = randomizeData(c1);
+	// c2 = randomizeData(c2);
+	// c3 = randomizeData(c3);
+
+	//ready for return
 	var category_list = [c1, c2, c3];
 	return category_list;
 }
@@ -84,6 +92,27 @@ isExist = function (name, nameList) {
 	return false;
 }
 
-randomizeData = function (array) {
-	
-}
+// randomizeData = function (array) {
+// 	// make a list of randomly arranged indices
+// 	var length = array.length;
+// 	var indexList = [];
+// 	for (var i=0; i<length; i++) {
+// 		var index;
+// 		// the newly generated random index
+// 		// cannot be already in indexList
+// 		do {
+// 			index = Math.random()*(length-1);
+// 			index = Math.floor(index);
+// 		} while (isExist(index, indexList)
+
+// 		indexList.push(index);
+// 	}
+// 	var randomArray = [];
+// 	//make new array according to the random indices
+// 	for (var i=0; i<length; i++) {
+// 		var randomIndex = indexList[i];
+// 		randomArray.push(array[randomIndex]);
+// 	}
+// 	console.log("randomArray: " + randomArray);
+// 	return randomArray;
+// }
