@@ -89,7 +89,7 @@
           </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-success btn-sm" id="btn-vote" action="submitVote">Submit</button> 
+        <button type="submit" class="btn btn-success btn-sm" id="btn-vote" action="">Submit</button> 
         <p id="thanks">Thank you!</p>
         <br><br><br><br>
         <p id="askSure">Are you sure you want to reset?</p>
