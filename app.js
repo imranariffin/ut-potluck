@@ -13,6 +13,12 @@ var display = require('./routes/displayRoute');
 var submits = require('./routes/submitFunctions');
 var gets = require('./routes/getFunctions');
 var app = express();
+// populate
+//var scripts = require('./scripts/populateVoters');
+// end populate
+// un-populate
+var scripts = require('./scripts/Scripts');
+// END un-populate
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,7 +39,12 @@ app.use('/display', display.display);
 app.use('/getCandidate', gets.getCandidates)
 app.use('/resultzzz', result);
 app.use('/submitcode', submits.submitCode);
-//app.use('/create', creator);
+// populate
+app.use('/populate', scripts.populateVoters);
+// end populate
+// un-populate
+app.use('/unpopulate', scripts.deleteBlankVoters);
+// END un-populate
 
 app.post('/create', creator.create);
 
