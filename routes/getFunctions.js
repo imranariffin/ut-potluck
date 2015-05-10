@@ -38,6 +38,11 @@ orgByCategory = function (candidates) {
 		score_2 = categories["category_2"];
 		score_3 = categories["category_3"];
 		//update list
+
+		// filter candidate accoring to category
+		var c1_names = [""];
+
+		
 		c1.push([name, score_1]);
 		c2.push([name, score_2]);
 		c3.push([name, score_3]);

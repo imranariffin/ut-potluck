@@ -22,16 +22,6 @@ var voterSchema = mongoose.Schema({
 	update_at : Date
 })
 
-//create Candidate schema
-var candidateSchema = mongoose.Schema({
-	name : String,
-	categories : {		
-		category_1 : Number,
-		category_2 : Number,
-		category_3 : Number
-	},
-	updated_at : Date
-});
 
 //create Voter model based on voter schema
 var Voter = mongoose.model('voter', voterSchema);
@@ -62,7 +52,7 @@ exports.populateVoters = function (req, res) {
 			candidates : candidates,
 			has_voted : false,
 			update_at : Date.now()
-		}).save( function( err, voter, count) {
+		}).save( function ( err, voter, count) {
 			res.send('success');
 		});
 	}
@@ -115,11 +105,12 @@ exports.resetVoter = function (req, res) {
 			voter.candidates.category_1 = "";
 			voter.candidates.category_2 = "";
 			voter.candidates.category_3 = "";
+			voter.has_voted = false;
 			voter.save();
+
 			console.log("voter: " + voter);
 			console.log("voter.access_code: " + voter.access_code);
 			console.log("voter.candidates: " + voter["candidates"]);
-
 			console.log("reset success");
 		} else {
 			console.log("Error resetVoter: Error findONe: " + err);
@@ -149,7 +140,7 @@ exports.resetAllVoters = function (req, res) {
 			//console.log(voter);
 			console.log("voter.access_code: " + voter.access_code);
 		}
-		//data.save();
+		data.save();
 		res.send("sucess reset all");
 	});
 }
@@ -157,13 +148,24 @@ exports.resetAllVoters = function (req, res) {
 // findOneAndUpdate(conditions, update, callback)
 
 //setup
+//create Candidate schema
+var candidateSchema = mongoose.Schema({
+	name : String,
+	categories : {		
+		category_1 : Number,
+		category_2 : Number,
+		category_3 : Number
+	},
+	updated_at : Date
+});
+
+var Candidate = mongoose.model('candidate', candidateSchema);
+
 var candidateList = [
-"Imran", 
 "Afiq", 
 "Anas", 
 "Zahir", 
 "Din", 
-"Arif", 
 "Nik",
 "Ipe",
 "Fasu",
@@ -171,11 +173,42 @@ var candidateList = [
 "Haikal",
 "Shuk",
 "Zack",
+"Nizhan",
+"Eddy",
+"Syamil",
+"Hazwan",
+"Nopal",
+"Pooh",
 "Amin"
 ];
 
 exports.populateCandidates = function (req, res) {
 
-	//Candidate.
+	for (var i=0; i<candidateList.length; i++) {
+		var candidateName = candidateList[i];
+		console.log("candidateName: " + candidateName);
+		//create new blank Candidate data
+		new Candidate ({
+			name : candidateName,
+			categories : {
+				category_1 : 0,
+				category_2 : 0,
+				category_3 : 0
+			},
+			update_at: Date.now()
 
+		}).save( function ( err, candidate, count) {
+			if (!err) {
+			res.send("populate candidates success");
+			} else {
+			res.send(err);
+			}		
+		});
+	}
+}
+
+//remove all candidates
+exports.removeAllCandidates = function (req, res) {
+	Candidate.find({}).remove().exec();	
+	res.send("done removing all candidates");
 }

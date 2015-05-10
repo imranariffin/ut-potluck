@@ -43,6 +43,7 @@ app.use('/submitVote', submits.submitVote);
 app.use('/getVoter', gets.getVoter);
 app.use('/resetVoter', scripts.resetVoter);
 app.use('/resetAllVoters', scripts.resetAllVoters);
+app.use('/populateCandidates', scripts.populateCandidates);
 // populate
 app.use('/populate', scripts.populateVoters);
 // end populate
