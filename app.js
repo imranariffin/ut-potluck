@@ -44,6 +44,7 @@ app.use('/getVoter', gets.getVoter);
 app.use('/resetVoter', scripts.resetVoter);
 app.use('/resetAllVoters', scripts.resetAllVoters);
 app.use('/populateCandidates', scripts.populateCandidates);
+app.use('/printAccessCode', scripts.printAccessCode);
 // populate
 app.use('/populate', scripts.populateVoters);
 // end populate

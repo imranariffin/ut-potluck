@@ -264,3 +264,14 @@ exports.removeAllCandidates = function (req, res) {
 	Candidate.find({}).remove().exec();	
 	res.send("done removing all candidates");
 }
+
+exports.printAccessCode = function (req, res) {
+	Voter.find({}, function (err, voters) {
+		for (i in voters) {
+			var voter = voters[i];
+			console.log(voter.access_code);
+		}
+	});
+
+	res.send("success");
+}
